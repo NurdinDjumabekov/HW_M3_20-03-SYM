@@ -1,45 +1,55 @@
-const gmailInput = document.getElementById("customerGmail");
-const btnStart = document.querySelector(".btn_start");
-const btn_result = document.getElementById("btn_inner_down");
-const div_parent = document.querySelector(".div_parent_2");
-// nur-dinDjumabekov2002@gmail.com
-const gmailRegExp_1 = /^[A-Za-z0-9_\-]+\@[gmail]+\.[A-Za-z]{2,3}$/;
-function startFunction() {
-  if (gmailRegExp_1.test(gmailInput.value)) {
-    btn_result.innerText = "✓";
-    btn_result.style.backgroundColor = "green";
+const input = document.querySelector("#input");
+const button = document.querySelector("#btn");
+const result = document.querySelector("#result");
+const regExp = /^\+7\(6\d{2}\)\d{3}-\d{2}-\d{2}$/;
+button.addEventListener("click", () => {
+  if (regExp.test(input.value)) {
+    result.innerHTML = "Вы ввели верный номер";
+    result.style.color = "green";
   } else {
-    btn_result.innerText = "✖";
-    btn_result.style.backgroundColor = "red";
+    result.innerHTML = "Вы ввели неверный номер";
+    result.style.color = "red";
   }
-}
+});
 
-btnStart.onclick = () => {
-  startFunction();
-  const btn_update = document.createElement("button");
-  btn_update.setAttribute("class", "btn_upDate");
-  btn_update.innerText = "up";
-  div_parent.append(btn_update);
-  btn_update.onclick = () => {
-    location.reload();
-  };
-};
+///////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////
-
-const innerSquare = document.querySelector(".div_inner_square_1");
-const innerSquare_bnt = document.querySelector(".bnt_square");
-innerSquare_bnt.onclick = () => {
-  let marginLeft = 0;
-  innerSquare.style.marginLeft = "0px";
-  let i = 0;
-  function startLeft() {
-    i += 10;
-    console.log(i);
-    innerSquare.style.marginLeft = i + "px";
-    if (i < 646) {
-      startLeft();
+const input_2 = document.querySelector("#input_2");
+const button_2 = document.querySelector("#btn_2");
+const result_2 = document.querySelector("#result_2");
+const regExp_2 = /^\d{14}$/;
+const regExpMan = /^1\d{13}$/;
+const regExpWoman = /^2\d{13}$/;
+button_2.addEventListener("click", () => {
+  if (regExp_2.test(input_2.value)) {
+    if (regExpMan.test(input_2.value)) {
+      result_2.innerHTML = "Вы ввели верный ИНН , и он женский";
+      result_2.style.color = "green";
+    } else if (regExpWoman.test(input_2.value)) {
+      result_2.innerHTML = "Вы ввели верный ИНН , и он мужской";
+      result_2.style.color = "green";
+    } else {
+      result_2.innerHTML = "Вы ввели неверный ИНН";
+      result_2.style.color = "red";
     }
+  } else {
+    result_2.innerHTML = "Вы ввели неверный ИНН";
+    result_2.style.color = "red";
   }
-  startLeft();
-};
+});
+
+//////////////////////////////////////////////////////////////
+
+const input_3 = document.querySelector("#input_3");
+const button_3 = document.querySelector("#btn_3");
+const result_3 = document.querySelector("#result_3");
+const regExp_3 = /^\d{2}\.\d{2}\.\d{4}$/;
+button_3.addEventListener("click", () => {
+  if (regExp_3.test(input_3.value)) {
+    result_3.innerHTML = "Спасибо, что заполнили дату своего рождения";
+    result_3.style.color = "green";
+  } else {
+    result_3.innerHTML = "Вы ввели неверную дату";
+    result_3.style.color = "red";
+  }
+});

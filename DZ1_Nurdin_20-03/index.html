@@ -9,25 +9,24 @@
   </head>
   <body>
     <div class="div_main">
-      <div class="div_parent_1">
-        <label for="customerGmail">Введите ваш Gmail</label>
-        <input
-          type="text"
-          id="customerGmail"
-          placeholder="DjumabekovNurdin@gmail.com"
-        />
-        <button class="btn_start">GO</button>
+      <div class="child_1">
+        <label id="info" for="">Введите казахский номер </label>
+        <input id="input" type="number " placeholder="+7(6XX)XXX-XX-XX" />
+        <button id="btn">go</button>
+        <span id="result"></span>
       </div>
-      <div class="div_parent_2">
-        <button id="btn_inner_down"></button>
+      <div class="child_2">
+        <label id="info_2" for="">Введите ИНН </label>
+        <input id="input_2" type="number " placeholder="10227200253543" />
+        <button id="btn_2">go</button>
+        <span id="result_2"></span>
       </div>
-    </div>
-    <div class="parent_square">
-      <div class="child_square_inner">
-        <div class="div_inner_square_1"></div>
-        <div class="div_inner_square_2"></div>
+      <div class="child_3">
+        <label id="info_3" for="">Введите дату своего рождения </label>
+        <input id="input_3" type="number " placeholder="27.02.2002" />
+        <button id="btn_3">go</button>
+        <span id="result_3"></span>
       </div>
-      <button class="bnt_square">start</button>
     </div>
   </body>
   <script src="main.js"></script>
