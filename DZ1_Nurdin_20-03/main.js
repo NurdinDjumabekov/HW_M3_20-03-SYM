@@ -53,3 +53,60 @@ button_3.addEventListener("click", () => {
     result_3.style.color = "red";
   }
 });
+
+///////////////////////////////////////////////////////////////////
+
+const people = {
+  Nurdin: {
+    age: 20,
+    parent: {
+      Zulay: {
+        age: 55,
+        parent: {
+          Amir: {
+            age: 80,
+            parent: {
+              Aisha: {
+                age: 100,
+              },
+            },
+          },
+        },
+      },
+      Duishen: {
+        age: 68,
+        parent: {
+          Asan: {
+            age: 80,
+          },
+        },
+      },
+    },
+  },
+  Ruslan: {
+    age: 20,
+    parent: {
+      Mahhabat: {
+        age: 45,
+        parent: {
+          Gulbara: {
+            age: 70,
+          },
+        },
+      },
+      Nurlan: {
+        age: 50,
+      },
+    },
+  },
+};
+const personSearch = (param) => {
+  for (const key in param.parent) {
+    personSearch(param.parent[key]);
+    console.log(key, "--- parents");
+  }
+};
+
+for (const i in people) {
+  personSearch(people[i]);
+}
