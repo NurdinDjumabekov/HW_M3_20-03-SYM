@@ -1,112 +1,74 @@
-// // const block = document.getElementsByClassName("block");
-// // let positionX_start = 0;
-// // let positionY_start = 0;
-// // let positionX_end = 448;
-// // let positionY_end = 448;
-// // const move = () => {
-// //   if (positionX_start <= 440) {
-// //     positionX_start += 15;
-// //     block[0].style.left = `${positionX_start}px`;
-// //     setTimeout(move, 20);
-// //   } else if (positionX_start >= 440 && positionY_start <= 440) {
-// //     positionY_start += 15;
-// //     block[0].style.top = `${positionY_start}px`;
-// //     setTimeout(move, 20);
-// //   } else if (positionX_end > 0) {
-// //     positionX_end -= 15;
-// //     block[0].style.left = `${positionX_end}px`;
-// //     setTimeout(move, 20);
-// //   } else if (positionY_end > 0) {
-// //     positionY_end -= 15;
-// //     block[0].style.top = `${positionY_end}px`;
-// //     setTimeout(move, 20);
-// //   } else if (positionY_end === -2) {
-// //     location.reload();
-// //   }
-// // };
-// // move();
+const box = document.querySelector(".box");
+const btn = document.getElementById("btn");
+const block = document.querySelector(".block");
+let postX = 0;
+let posrY = 0;
 
-// // ////////////////////////////////////////////////////////////////////
+function startRecursia() {
+  setTimeout(() => {
+    postX += 10;
+    if (postX <= 450) {
+      console.log(postX);
+      block.style.left = `${postX}px`;
+      startRecursia();
+    }
+  }, 10);
+  setTimeout(() => {
+    posrY += 10;
+    if (postX >= 440 && posrY <= 450) {
+      console.log(posrY);
+      block.style.top = `${posrY}px`;
+      startRecursia();
+    }
+  }, 1000);
+  setTimeout(() => {
+    postX -= 10;
+    if (posrY >= 440 && postX >= 440) {
+      console.log(postX);
+      block.style.left = `${postX}px`;
+      startRecursia();
+    }
+  }, 100);
+}
 
-// let time = setInterval(() => console.log("start"), 1000);
-// setTimeout(() => {
-//   clearInterval(time);
-// }, 60000);
+startRecursia();
 
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// function startRecursia() {
+//   let postX = 0;
+//   let posrY = 0;
+//   function move() {
+//     if (postX == 440) {
+//       clearInterval(stop);
+//     }
+//     postX += 10;
+//     block.style.left = `${postX}px`;
+//     console.log(postX);
+//     ///////////// block.style.left = postX + "px";
 
-// const block = document.querySelector(".block");
-
-// let positionX = 0;
-// let positionY = 0;
-// let positionX_true = false;
-// let positionX_false = false;
-// let start = 1;
-
-// const move = () => {
-//   if (start === 1) {
-//     if (positionX_true === false && positionX <= 440) {
-//       positionX += 15;
-//       block.style.left = `${positionX}px`;
-//       setTimeout(move, 10);
-//     } else if (positionX >= 440 && positionY <= 440) {
-//       positionY += 15;
-//       block.style.top = `${positionY}px`;
-//       setTimeout(move, 10);
-//     } else if (positionX > 0 && positionY >= 440) {
-//       positionX_true = true;
-//       positionX -= 15;
-//       block.style.left = `${positionX}px`;
-//       setTimeout(move, 10);
-//     } else if (positionX_false === false && positionY > 0) {
-//       if (positionY === 10) positionX_true = false;
-//       positionY -= 10;
-//       block.style.top = `${positionY}px`;
-//       setTimeout(move, 10);
+//     if (postX == 450 && posrY >= 440) {
+//       posrY += 10;
+//       block.style.top = `${postX}px`;
 //     }
 //   }
-// };
-// move();
+// }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// startRecursia();
+
+///////////////////////////////////////////////
+
+const p_time = document.querySelector("#p_time");
+const btn_time_start = document.getElementById("btn_time");
 const body = document.querySelector("body");
-const newTime = document.querySelector("#p_time");
-let i = 0;
-const time = setInterval(() => {
-  i++;
-  newTime.innerHTML = i;
-  if (i === 60) {
-    body.style.background = "#cccc33";
-  }
-}, 100);
-setTimeout(() => {
-  clearInterval(time);
-}, 6000);
+btn_time_start.addEventListener("click", () => {
+  let i = 0;
+  let time = setInterval(() => {
+    i++;
+    p_time.innerHTML = i;
+    if (i == 60) {
+      clearInterval(time);
+      body.style.background = "#cc9900";
+    }
+  }, 100);
+});
 
-const block = document.getElementsByClassName("block");
-let positionX_start = 0;
-let positionY_start = 0;
-let positionX_end = 448;
-let positionY_end = 448;
-const move = () => {
-  if (positionX_start <= 440) {
-    positionX_start += 15;
-    block[0].style.left = positionX_start + "px";
-    setTimeout(move, 45);
-  } else if (positionX_start >= 440 && positionY_start <= 440) {
-    positionY_start += 15;
-    block[0].style.top = `${positionY_start}px`;
-    setTimeout(move, 42);
-  } else if (positionX_end > 0) {
-    positionX_end -= 15;
-    block[0].style.left = `${positionX_end}px`;
-    setTimeout(move, 40);
-  } else if (positionY_end > 0) {
-    positionY_end -= 15;
-    block[0].style.top = `${positionY_end}px`;
-    setTimeout(move, 40);
-  } else if (positionY_end === -2) {
-    location.reload();
-  }
-};
-move();
+////////////////////////////
